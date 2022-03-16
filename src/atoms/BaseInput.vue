@@ -5,9 +5,9 @@
     :data-theme="theme"
   >
     <div class="su-input_control" :class="{ 'is-focused': isFocused }">
-      <label class="su-input_label label notes">
+      <label class="su-input_label">
         {{ label }}
-        <span class="su-input_note message">{{ note }}</span>
+        <span v-if="note" class="su-input_note">{{ note }}</span>
         <slot name="tool-tip"></slot>
         <input
           :type="inputType"
@@ -38,7 +38,7 @@
       </label>
 
       <span v-if="error" class="su-input_error message">{{ errMsg }}</span>
-      <span v-else class="su-input_note message">{{ note }}</span>
+      <!-- <span v-else class="su-input_note message">{{ note }}</span> -->
     </div>
   </div>
 </template>
@@ -305,6 +305,10 @@ input[type="number"]::-webkit-outer-spin-button {
           max-width: 22px;
         }
       }
+    }
+
+    .su-input_note {
+      color: #f33131;
     }
 
     .su-input_text {
