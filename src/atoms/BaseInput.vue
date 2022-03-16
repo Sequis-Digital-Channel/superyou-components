@@ -7,6 +7,7 @@
     <div class="su-input_control" :class="{ 'is-focused': isFocused }">
       <label class="su-input_label">
         {{ label }}
+        <span class="su-input_note message">{{ note }}</span>
         <slot name="tool-tip"></slot>
         <input
           :type="inputType"
