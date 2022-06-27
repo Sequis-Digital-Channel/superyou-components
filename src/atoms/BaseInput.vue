@@ -22,6 +22,7 @@
           @input="onInputChange($event)"
           :ref="inputType"
           :readonly="readOnly"
+          :placeholder="placeholder"
         />
         <span class="span-container" v-if="loader">
           <i class="loader"></i>
@@ -113,6 +114,9 @@ export default {
     theme: {
       type: String,
       default: "normal"
+    },
+    placeholder: {
+      type: String
     }
   },
   methods: {
