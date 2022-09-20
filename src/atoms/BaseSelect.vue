@@ -12,14 +12,20 @@
       :value="value"
       :options="options"
       :reduce="opt => opt.val"
-      :searchable="false"
+      :searchable="searchable"
       :selectable="select"
       @input="onSelectOption"
       @search:focus="onFocus"
       @search:blur="onBlur"
       :select-on-key-codes="[8]"
       :disabled="readOnly || disabled"
-    ></v-select>
+    >
+      <template v-slot:no-options>
+        <template>
+          Tidak ada hasil yang ditemukan
+        </template>
+      </template>
+    </v-select>
     <span v-if="error" class="su-input_error message">{{ errMsg }}</span>
   </div>
 </template>
@@ -79,6 +85,10 @@ export default {
       default: false
     },
     disabled: {
+      type: Boolean,
+      default: false
+    },
+    searchable: {
       type: Boolean,
       default: false
     }
@@ -174,11 +184,10 @@ export default {
         .vs__search {
           font-size: 16px;
           color: var(--text-color);
-          padding-bottom: 4px;
+          padding-left: 0;
           position: absolute;
           left: 0;
-          top: 100%;
-          opacity: 0;
+          top: 5px;
           width: 100%;
         }
       }
@@ -211,6 +220,7 @@ export default {
       }
       .vs__no-options {
         font-size: 16px;
+        padding: 6px 20px;
         color: var(--label-text-color);
       }
     }
@@ -223,6 +233,12 @@ export default {
         &::after {
           transform: scaleX(1);
         }
+      }
+    }
+
+    &.vs--searching {
+      .vs__search {
+        position: initial !important;
       }
     }
   }

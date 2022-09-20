@@ -23,6 +23,7 @@
           :ref="inputType"
           :readonly="readOnly"
           :placeholder="placeholder"
+          :disabled="disabled"
         />
         <span class="span-container" v-if="loader">
           <i class="loader"></i>
@@ -117,6 +118,10 @@ export default {
     },
     placeholder: {
       type: String
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
