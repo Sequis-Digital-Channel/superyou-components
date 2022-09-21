@@ -72,6 +72,7 @@
         :select="(opt) => opt.val !== 'mother'"
         :options="dataSelectOpt"
         :theme="currentTheme"
+        :searchable="true"
       ></base-select>
       <br />
       <base-checkbox-and-radio
