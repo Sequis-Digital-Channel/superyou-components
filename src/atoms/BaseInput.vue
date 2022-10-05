@@ -342,8 +342,9 @@ input[type="number"]::-webkit-outer-spin-button {
       position: absolute;
       width: 100%;
       left: 0;
-      bottom: -20px;
+      top: 100%;
       font-size: 10px;
+      margin-top: 8px;
       &.su-input_error {
         color: #f33131;
       }
